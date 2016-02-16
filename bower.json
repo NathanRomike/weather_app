@@ -1,0 +1,20 @@
+{
+  "name": "weather",
+  "description": "",
+  "main": "index.js",
+  "moduleType": [
+    "node"
+  ],
+  "authors": [
+    "Ted Nugent"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
