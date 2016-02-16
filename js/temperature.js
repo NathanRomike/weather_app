@@ -3,11 +3,11 @@ var ConvertKelvin = function(kelvin) {
   this.fahrenheit;
   this.celsiusConvert = 273.15;
   this.fahrenheitConvert = 459.67;
-  this.kelvin = kelvin;
+  this.kelvin = parseInt(kelvin);
 }
 
 ConvertKelvin.prototype.celsius = function() {
-  return this.kelvin - this.convert;
+  return this.kelvin - this.celsiusConvert;
 };
 
 ConvertKelvin.prototype.fahrenheit = function() {
