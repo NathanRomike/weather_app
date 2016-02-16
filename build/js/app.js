@@ -8,30 +8,41 @@ var ConvertKelvin = function(kelvin) {
 }
 
 ConvertKelvin.prototype.celsius = function() {
-  return this.kelvin - this.celsiusConvert;
+  return (this.kelvin - this.celsiusConvert).toFixed(2);
 };
 
 ConvertKelvin.prototype.fahrenheit = function() {
-  return (this.kelvin * 1.8) - this.fahrenheitConvert;
+  return ((this.kelvin * 1.8) - this.fahrenheitConvert).toFixed(2);
 };
 
 exports.ConvertKelvin = ConvertKelvin;
 
 },{}],2:[function(require,module,exports){
 
-var apiKey = "1ce02eae37f17adf7e9f5b11ebd200ff";
 var ConvertKelvin = require('./../js/temperature.js').ConvertKelvin;
+var apiKey = "1ce02eae37f17adf7e9f5b11ebd200ff";
 
 $(document).ready(function(){
-  $('#weatherTemp').click(function(){
+  $('#weatherTempC').click(function(){
     var city = $('#location').val();
-    // $('#location').val("");
     $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey, function(response) {
       if (response.cod !== 200) {
         $('.showWeather').text(response.message);
       } else {
         kelToCel = new ConvertKelvin(response.main.temp)
-        $('.showWeather').text("The temperature in " + city + " is " + kelToCel.celsius() + " Kelvin");
+        $('.showWeather').text("The temperature in " + city + " is " + kelToCel.celsius() + " C");
+      }
+    });
+  });
+
+  $('#weatherTempF').click(function(){
+    var city = $('#location').val();
+    $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey, function(response) {
+      if (response.cod !== 200) {
+        $('.showWeather').text(response.message);
+      } else {
+        kelToCel = new ConvertKelvin(response.main.temp)
+        $('.showWeather').text("The temperature in " + city + " is " + kelToCel.fahrenheit() + " F");
       }
     });
   });
@@ -46,7 +57,6 @@ var apiKey = "1ce02eae37f17adf7e9f5b11ebd200ff";
 $(document).ready(function(){
   $('#weatherLocation').click(function(){
     var city = $('#location').val();
-    // $('#location').val("");
     $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey, function(response) {
       if (response.cod !== 200) {
         $('.showWeather').text(response.message);

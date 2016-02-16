@@ -7,11 +7,11 @@ var ConvertKelvin = function(kelvin) {
 }
 
 ConvertKelvin.prototype.celsius = function() {
-  return this.kelvin - this.celsiusConvert;
+  return (this.kelvin - this.celsiusConvert).toFixed(2);
 };
 
 ConvertKelvin.prototype.fahrenheit = function() {
-  return (this.kelvin * 1.8) - this.fahrenheitConvert;
+  return ((this.kelvin * 1.8) - this.fahrenheitConvert).toFixed(2);
 };
 
 exports.ConvertKelvin = ConvertKelvin;
