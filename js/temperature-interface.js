@@ -8,8 +8,8 @@ $(document).ready(function(){
       if (response.cod !== 200) {
         $('.showWeather').text(response.message);
       } else {
-        kelToCel = new ConvertKelvin(response.main.temp)
-        $('.showWeather').text("The temperature in " + city + " is " + kelToCel.celsius() + " C");
+        kelvinInput = new ConvertKelvin(response.main.temp)
+        $('.showWeather').text("The temperature in " + city + " is " + kelvinInput.celsius() + " C");
       }
     });
   });
@@ -20,8 +20,8 @@ $(document).ready(function(){
       if (response.cod !== 200) {
         $('.showWeather').text(response.message);
       } else {
-        kelToCel = new ConvertKelvin(response.main.temp)
-        $('.showWeather').text("The temperature in " + city + " is " + kelToCel.fahrenheit() + " F");
+        kelvinInput = new ConvertKelvin(response.main.temp)
+        $('.showWeather').text("The temperature in " + city + " is " + kelvinInput.fahrenheit() + " F");
       }
     });
   });

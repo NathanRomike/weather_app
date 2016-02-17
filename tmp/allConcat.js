@@ -9,8 +9,8 @@ $(document).ready(function(){
       if (response.cod !== 200) {
         $('.showWeather').text(response.message);
       } else {
-        kelToCel = new ConvertKelvin(response.main.temp)
-        $('.showWeather').text("The temperature in " + city + " is " + kelToCel.celsius() + " C");
+        kelvinInput = new ConvertKelvin(response.main.temp)
+        $('.showWeather').text("The temperature in " + city + " is " + kelvinInput.celsius() + " C");
       }
     });
   });
@@ -21,15 +21,23 @@ $(document).ready(function(){
       if (response.cod !== 200) {
         $('.showWeather').text(response.message);
       } else {
-        kelToCel = new ConvertKelvin(response.main.temp)
-        $('.showWeather').text("The temperature in " + city + " is " + kelToCel.fahrenheit() + " F");
+        kelvinInput = new ConvertKelvin(response.main.temp)
+        $('.showWeather').text("The temperature in " + city + " is " + kelvinInput.fahrenheit() + " F");
       }
     });
   });
 });
 
+function displayTime() {
+  var time = moment().format('MMMM Do YYYY, h:mm:ss a');
+  $('#time').html(time);
+  setTimeout(displayTime, 1000);
+}
 $(document).ready(function() {
-  $('#time').text(moment());
+  displayTime();
+  $('#buttonSetTimer').click(function(){
+    $('.timer-info').text("This doesn't work!");
+  });
 });
 
 var apiKey = "1ce02eae37f17adf7e9f5b11ebd200ff";

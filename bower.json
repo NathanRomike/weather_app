@@ -21,5 +21,8 @@
     "jquery": "^2.2.0",
     "bootstrap": "^3.3.6",
     "moment": "^2.11.2"
+  },
+  "devDependencies": {
+    "moment": "^2.11.2"
   }
 }
